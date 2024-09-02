@@ -3,7 +3,6 @@ import {
   useCallback,
 } from 'react'
 import produce from 'immer'
-import cn from 'classnames'
 import {
   RiAddLine,
 } from '@remixicon/react'
@@ -21,6 +20,7 @@ import {
 import { NODES_INITIAL_DATA } from '../../constants'
 import InsertBlock from './insert-block'
 import type { IterationNodeType } from './types'
+import cn from '@/utils/classnames'
 import BlockSelector from '@/app/components/workflow/block-selector'
 import { IterationStart } from '@/app/components/base/icons/src/vender/workflow'
 import type {
@@ -29,7 +29,7 @@ import type {
 import {
   BlockEnum,
 } from '@/app/components/workflow/types'
-import TooltipPlus from '@/app/components/base/tooltip-plus'
+import Tooltip from '@/app/components/base/tooltip'
 
 type AddBlockProps = {
   iterationNodeId: string
@@ -99,11 +99,11 @@ const AddBlock = ({
 
   return (
     <div className='absolute top-12 left-6 flex items-center h-8 z-10'>
-      <TooltipPlus popupContent={t('workflow.blocks.iteration-start')}>
+      <Tooltip popupContent={t('workflow.blocks.iteration-start')}>
         <div className='flex items-center justify-center w-6 h-6 rounded-full border-[0.5px] border-black/[0.02] shadow-md bg-primary-500'>
           <IterationStart className='w-4 h-4 text-white' />
         </div>
-      </TooltipPlus>
+      </Tooltip>
       <div className='group/insert relative w-16 h-0.5 bg-gray-300'>
         {
           iterationNodeData.startNodeType && (

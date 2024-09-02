@@ -64,6 +64,10 @@ const translation = {
       ukUA: '乌克兰语',
       viVN: '越南语',
       plPL: '波兰语',
+      roRO: '罗马尼亚语',
+      hiIN: '印地语',
+      trTR: '土耳其语',
+      faIR: '波斯语',
     },
   },
   unit: {
@@ -124,6 +128,7 @@ const translation = {
   },
   userProfile: {
     settings: '设置',
+    emailSupport: '邮件支持',
     workspace: '工作空间',
     createWorkspace: '创建工作空间',
     helpCenter: '帮助文档',
@@ -179,6 +184,8 @@ const translation = {
     normalTip: '只能使用应用程序，不能建立应用程序',
     editor: '编辑',
     editorTip: '能够建立并编辑应用程序，不能管理团队设置',
+    datasetOperator: '知识库管理员',
+    datasetOperatorTip: '只能管理知识库',
     inviteTeamMember: '添加团队成员',
     inviteTeamMemberTip: '对方在登录后可以访问你的团队数据。',
     email: '邮箱',
@@ -403,7 +410,7 @@ const translation = {
   apiBasedExtension: {
     title: 'API 扩展提供了一个集中式的 API 管理，在此统一添加 API 配置后，方便在 Dify 上的各类应用中直接使用。',
     link: '了解如何开发您自己的 API 扩展。',
-    linkUrl: 'https://docs.dify.ai/v/zh-hans/advanced/api_based_extension',
+    linkUrl: 'https://docs.dify.ai/v/zh-hans/guides/extension/api-based-extension',
     add: '新增 API 扩展',
     selector: {
       title: 'API 扩展',
