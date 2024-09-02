@@ -5,11 +5,11 @@ import { useRouter } from 'next/navigation'
 import { useTranslation } from 'react-i18next'
 import { omit } from 'lodash-es'
 import { ArrowRightIcon } from '@heroicons/react/24/solid'
-import cn from 'classnames'
 import {
   RiErrorWarningFill,
 } from '@remixicon/react'
 import s from './index.module.css'
+import cn from '@/utils/classnames'
 import { FieldInfo } from '@/app/components/datasets/documents/detail/metadata'
 import Button from '@/app/components/base/button'
 import type { FullDocumentDetail, IndexingStatusResponse, ProcessRuleResponse } from '@/models/datasets'
@@ -22,7 +22,7 @@ import { Plan } from '@/app/components/billing/type'
 import { ZapFast } from '@/app/components/base/icons/src/vender/solid/general'
 import UpgradeBtn from '@/app/components/billing/upgrade-btn'
 import { useProviderContext } from '@/context/provider-context'
-import TooltipPlus from '@/app/components/base/tooltip-plus'
+import Tooltip from '@/app/components/base/tooltip'
 import { sleep } from '@/utils'
 
 type Props = {
@@ -259,16 +259,18 @@ const EmbeddingProcess: FC<Props> = ({ datasetId, batchId, documents = [], index
                 <div className={s.percent}>{`${getSourcePercent(indexingStatusDetail)}%`}</div>
               )}
               {indexingStatusDetail.indexing_status === 'error' && indexingStatusDetail.error && (
-                <TooltipPlus popupContent={(
-                  <div className='max-w-[400px]'>
-                    {indexingStatusDetail.error}
-                  </div>
-                )}>
+                <Tooltip
+                  popupContent={(
+                    <div className='max-w-[400px]'>
+                      {indexingStatusDetail.error}
+                    </div>
+                  )}
+                >
                   <div className={cn(s.percent, s.error, 'flex items-center')}>
                     Error
                     <RiErrorWarningFill className='ml-1 w-4 h-4' />
                   </div>
-                </TooltipPlus>
+                </Tooltip>
               )}
               {indexingStatusDetail.indexing_status === 'error' && !indexingStatusDetail.error && (
                 <div className={cn(s.percent, s.error, 'flex items-center')}>
